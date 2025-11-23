@@ -15,7 +15,7 @@
 </head>
 <body class="dashboard-page">
   
-  <!-- Header do Dashboard -->
+  
   <header class="dashboard-header">
     <div class="container dashboard-header__container">
       <a href="dashboard.html" class="dashboard-logo">
@@ -54,11 +54,11 @@
     </div>
   </header>
 
-  <!-- Main Content -->
+  
   <main class="dashboard-main">
     <div class="container">
       
-      <!-- Informações do Aluno -->
+      
       <section class="student-info">
         <div class="student-info__card">
           <div class="student-info__item">
@@ -80,10 +80,10 @@
         </div>
       </section>
 
-      <!-- Cards de Destaque: Próxima Aula e Horas Complementares -->
+      
       <section class="highlight-cards">
-        <!-- Card: Próxima Aula -->
-        <article class="proxima-aula-card">
+        
+        <article class="proxima-aula-card card-glass">
           <div class="proxima-aula-card__header">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
@@ -110,8 +110,8 @@
           </div>
         </article>
 
-        <!-- Card: Horas Complementares -->
-        <article class="horas-card">
+        
+        <article class="horas-card card-glass">
           <div class="horas-card__header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -129,8 +129,8 @@
           <p class="horas-card__label">60% concluído</p>
         </article>
 
-        <!-- Card: Presença -->
-        <article class="presenca-card">
+        
+        <article class="presenca-card card-glass">
           <div class="presenca-card__header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M9 11l3 3L22 4"></path>
@@ -159,11 +159,11 @@
         </article>
       </section>
 
-      <!-- Grid de Widgets -->
+      
       <section class="widgets-grid">
         
-        <!-- Widget: Próximas Provas -->
-        <article class="widget widget--provas">
+        
+        <article class="widget widget--provas card-glass">
           <div class="widget__header">
             <h2 class="widget__title">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -177,13 +177,13 @@
           </div>
           <div class="widget__content">
             <ul class="provas-list" id="provas-list">
-              <!-- Será preenchido pelo JS -->
+              
             </ul>
           </div>
         </article>
 
-        <!-- Widget: Minhas Notas -->
-        <article class="widget widget--notas">
+        
+        <article class="widget widget--notas card-glass">
           <div class="widget__header">
             <h2 class="widget__title">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -198,13 +198,13 @@
           </div>
           <div class="widget__content">
             <div class="notas-table" id="notas-table">
-              <!-- Será preenchido pelo JS -->
+              
             </div>
           </div>
         </article>
 
-        <!-- Widget: Calendário Acadêmico -->
-        <article class="widget widget--calendario">
+        
+        <article class="widget widget--calendario card-glass">
           <div class="widget__header">
             <h2 class="widget__title">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -219,7 +219,7 @@
           </div>
           <div class="widget__content">
             <div class="calendario" id="calendario">
-              <!-- Será preenchido pelo JS -->
+              
             </div>
           </div>
         </article>
@@ -228,13 +228,15 @@
     </div>
   </main>
 
-  <!-- Footer simplificado -->
+  
   <footer class="dashboard-footer">
     <div class="container">
       <p>&copy; 2025 Instituto Nacional de Telecomunicações - Inatel</p>
     </div>
   </footer>
 
+  <script src="../js/main.js"></script>
   <script src="../js/dashboard.js"></script>
 </body>
 </html>
+
