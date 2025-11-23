@@ -1,10 +1,3 @@
-// ================================================
-// DASHBOARD.JS - LÓGICA DA ÁREA DO ALUNO
-// ================================================
-
-/**
- * Dados Mockados
- */
 const mockData = {
   student: {
     name: 'Antonio Augusto',
@@ -55,9 +48,6 @@ const mockData = {
   ]
 };
 
-/**
- * Saudação dinâmica baseada no horário
- */
 function updateGreeting() {
   try {
     const greetingElement = document.getElementById('greeting-text');
@@ -80,15 +70,12 @@ function updateGreeting() {
   }
 }
 
-/**
- * Renderiza a lista de próximas provas
- */
 function renderProvas() {
   try {
     const provasList = document.getElementById('provas-list');
     if (!provasList) return;
     
-    if (mockData.provas.length === 0) {
+    if (!mockData.provas || mockData.provas.length === 0) {
       provasList.innerHTML = '<li style="padding: 1rem; text-align: center; color: #6B7280;">Nenhuma prova agendada</li>';
       return;
     }
@@ -121,21 +108,17 @@ function renderProvas() {
   }
 }
 
-/**
- * Renderiza a tabela de notas
- */
 function renderNotas() {
   try {
     const notasTable = document.getElementById('notas-table');
     if (!notasTable) return;
     
-    if (mockData.notas.length === 0) {
+    if (!mockData.notas || mockData.notas.length === 0) {
       notasTable.innerHTML = '<div style="padding: 1rem; text-align: center; color: #6B7280;">Nenhuma nota disponível</div>';
       return;
     }
     
     const notasHTML = mockData.notas.map(nota => {
-      // Determinar classe baseada na nota
       let notaClass = 'nota-row__valor';
       let progressClass = 'nota-row__progress-bar';
       
@@ -152,7 +135,6 @@ function renderNotas() {
         progressClass += ' nota-row__progress-bar--low';
       }
       
-      // Calcular porcentagem (nota de 0 a 10)
       const percentage = (nota.nota / 10) * 100;
       
       return `
@@ -174,9 +156,6 @@ function renderNotas() {
   }
 }
 
-/**
- * Renderiza o calendário do mês atual
- */
 function renderCalendario() {
   try {
     const calendarioElement = document.getElementById('calendario');
@@ -189,7 +168,6 @@ function renderCalendario() {
     const month = now.getMonth();
     const today = now.getDate();
     
-    // Atualizar o título do mês
     const monthNames = [
       'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',
       'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'
@@ -199,44 +177,34 @@ function renderCalendario() {
       currentMonthElement.textContent = `${monthNames[month]} ${year}`;
     }
     
-    // Primeiro dia do mês (0 = domingo, 6 = sábado)
     const firstDay = new Date(year, month, 1).getDay();
-    
-    // Último dia do mês
     const lastDate = new Date(year, month + 1, 0).getDate();
     
-    // Cabeçalho dos dias da semana
     const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
     let calendarHTML = '';
     
-    // Adicionar cabeçalho
     weekDays.forEach(day => {
       calendarHTML += `<div class="calendario__header">${day}</div>`;
     });
     
-    // Adicionar células vazias antes do primeiro dia
     for (let i = 0; i < firstDay; i++) {
       calendarHTML += '<div class="calendario__day calendario__day--empty"></div>';
     }
     
-    // Adicionar os dias do mês
     for (let day = 1; day <= lastDate; day++) {
       let dayClass = 'calendario__day';
       let eventName = '';
       
-      // Marcar o dia de hoje
       if (day === today) {
         dayClass += ' calendario__day--today';
       }
       
-      // Marcar dias com eventos e pegar o nome do evento
       const eventData = mockData.eventDays.find(e => e.day === day);
       if (eventData) {
         dayClass += ' calendario__day--event';
         eventName = eventData.event;
       }
       
-      // Adicionar atributo data-event para o tooltip
       const dataEventAttr = eventName ? ` data-event="${eventName}"` : '';
       
       calendarHTML += `<div class="${dayClass}"${dataEventAttr}>${day}</div>`;
@@ -248,24 +216,16 @@ function renderCalendario() {
   }
 }
 
-/**
- * Inicialização quando o DOM estiver pronto
- */
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    // Atualizar saudação baseada no horário
     updateGreeting();
-    
-    // Renderizar widgets com dados mockados
     renderProvas();
     renderNotas();
     renderCalendario();
     
-    // Listener para o botão de menu do usuário (futuro)
     const userMenuBtn = document.getElementById('user-menu-btn');
     if (userMenuBtn) {
       userMenuBtn.addEventListener('click', function() {
-        console.log('Menu do usuário clicado - Funcionalidade futura');
       });
     }
     
